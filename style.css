@@ -1,26 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
 :root {
   --navy: #0b1f3a;
   --navy-soft: #102a4e;
   --accent: #6fb1fc;
   --accent-soft: #eaf3ff;
   --text-dark: #1f2937;
-  --text-muted: #6b7280;
+  --text-muted: #2c2f35;
   --card-bg: #ffffff;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", "Segoe UI", sans-serif;
-}
-
-body {
-  background: #ffffff;
-  color: #ffffff;
-}
-
-/* COLOR VARIABLES */
+/* COLOR VARIABLES (SECOND SET – DO NOT MERGE) */
 :root {
   --navy: #0b1c2d;
   --navy-soft: #13293d;
@@ -28,7 +26,32 @@ body {
   --white: #ffffff;
 }
 
-/* NAVBAR */
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #c9cfd89c;
+  color: #e2e7f4;
+}
+
+section {
+  scroll-margin-top: 10;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -64,14 +87,16 @@ body {
   color: var(--accent);
 }
 
-/* HERO */
+/* =====================================================
+   HERO SECTION
+===================================================== */
 .hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
-/* IMAGE GRID */
+/* Background Grid */
 .hero-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -84,7 +109,7 @@ body {
   object-fit: cover;
 }
 
-/* OVERLAY */
+/* Overlay */
 .hero-overlay {
   position: absolute;
   inset: 0;
@@ -92,7 +117,7 @@ body {
   z-index: 1;
 }
 
-/* HERO TEXT */
+/* Content */
 .hero-content {
   position: absolute;
   inset: 0;
@@ -123,7 +148,9 @@ body {
   color: #e5e7eb;
 }
 
-/* BUTTON */
+/* =====================================================
+   BUTTONS
+===================================================== */
 .btn-primary {
   background: var(--accent);
   color: var(--navy);
@@ -138,22 +165,24 @@ body {
   background: #8bbce6;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .hero-gallery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hero-content h1 {
-    font-size: 32px;
-  }
-
-  .nav-menu {
-    display: none;
-  }
+.btn-outline {
+  padding: 14px 32px;
+  border-radius: 30px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-/* ABOUT SECTION */
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--navy);
+}
+
+/* =====================================================
+   ABOUT SECTION
+===================================================== */
 .about-section {
   padding: 120px 20px;
   background: #f8fafc;
@@ -169,7 +198,6 @@ body {
   align-items: center;
 }
 
-/* LEFT */
 .about-text h2 {
   font-size: 36px;
   font-weight: 700;
@@ -203,31 +231,15 @@ body {
   color: #334155;
 }
 
-/* BUTTONS */
 .about-actions {
-  margin-top: 30px;
+  margin-top: 50px;
   display: flex;
   gap: 16px;
 }
 
-.btn-outline {
-  padding: 14px 32px;
-  border-radius: 30px;
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn-outline:hover {
-  background: var(--accent);
-  color: var(--navy);
-}
-
-/* RIGHT CARD */
+/* Right Card */
 .about-card {
-  background: white;
+  background: #ffffff;
   border-radius: 24px;
   padding: 28px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
@@ -261,51 +273,123 @@ body {
   width: 90px;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .about-container {
-    grid-template-columns: 1fr;
-  }
-
-  .about-card {
-    margin-top: 40px;
-  }
-}
-
+/* =====================================================
+   PORTFOLIO / SECTION BASE
+===================================================== */
 .portfolio {
-  background: linear-gradient(
-    180deg,
-    var(--accent-soft) 0%,
-    #ffffff 100%
-  );
-  padding: 90px 0;
+  padding: 30px 0;
   position: relative;
+  background: linear-gradient(180deg, var(--accent-soft) 0%, #ffffff 100%);
 }
 
-/* glow highlight top */
-.portfolio::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(
-    circle,
-    rgba(111, 177, 252, 0.35),
-    transparent 70%
-  );
-  filter: blur(80px);
-  z-index: 0;
+.section {
+  padding: 30px 0;
 }
+
+.section-light {
+  background: #ffffff;
+}
+
+.section-soft {
+  background: linear-gradient(180deg, #e5e7eb 0%, #f8fafc 100%);
+}
+
+/* =========================
+   EDUCATION SECTION
+========================= */
+.education-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 26px;
+  box-shadow: 0 30px 60px rgba(11, 31, 58, 0.12);
+}
+
+.education-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.edu-meta {
+  display: block;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.edu-list {
+  padding-left: 18px;
+}
+
+.edu-list li {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* =========================
+   INTERNSHIP SECTION
+========================= */
+.internship-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.internship-content h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+/* GALLERY */
+.internship-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+}
+
+.internship-gallery img {
+  width: 100%;
+  aspect-ratio: 30 / 20;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(11, 31, 58, 0.12);
+}
+
 
 /* =========================
    PORTFOLIO SECTION
 ========================= */
 .portfolio {
-  padding: 90px 0;
   position: relative;
+}
+
+/* PUTIH */
+.section-light {
+  background: #ffffff;
+}
+
+/* ABU / SOFT */
+.section-soft {
+  background: #e5e7eb; 
+}
+
+.section-soft {
+  background: linear-gradient(
+    180deg,
+    #e5e7eb 0%,
+    #f8fafc 100%
+  );
 }
 
 /* =========================
@@ -351,7 +435,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 32px;
 }
 
 .training-meta span {
@@ -363,91 +447,30 @@ body {
   font-weight: 600;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .training-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.training-content .btn-outline {
-  margin-top: 18px;
-  display: inline-block;
-}
-
-
-/* =========================
-   DOCUMENTATION GALLERY
-========================= */
-.documentation-gallery {
-  max-width: 1100px;
-  margin: 60px auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
-}
-
-/* WRAPPER (KUNCI RASIO DI SINI) */
-.doc-image {
-  width: 100%;
-  aspect-ratio: 25 / 18;   /* 🔥 INI YANG KAMU MAU */
-  overflow: hidden;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(11, 31, 58, 0.12);
-}
-
-/* IMAGE */
-.doc-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-/* HOVER EFFECT */
-.doc-image:hover img {
-  transform: scale(1.05);
-}
-
-
-/* =========================
-   SECTION TITLE (EXPERIENCE / ACADEMIC / ORGANIZATIONAL)
-========================= */
-
-.portfolio-section {
-  padding-top: 80px;
-}
-
-.section-header {
-  margin-bottom: 70px;
-}
-
+/* =====================================================
+   SECTION HEADER
+===================================================== */
 .section-header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 64px;
 }
 
 .section-header h2 {
-  font-size: 36px;
+  font-size: 44px;
   font-weight: 800;
   letter-spacing: 1px;
   color: var(--navy);
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
-/* highlight underline */
 .section-header h2::after {
   content: "";
   display: block;
   width: 60px;
   height: 4px;
   margin: 14px auto 0;
-  background: linear-gradient(
-    90deg,
-    var(--accent),
-    var(--navy-soft)
-  );
+  background: linear-gradient(90deg, var(--accent), var(--navy-soft));
   border-radius: 999px;
 }
 
@@ -457,6 +480,36 @@ body {
   font-size: 16px;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+
+/* =========================
+   SECTION TITLE ( ACADEMIC / ORGANIZATIONAL)
+========================= */
+
+.portfolio-section {
+  padding: 100px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+/* =====================================================
+   ACADEMIC SECTION 
+===================================================== */
+#academic {
+  padding-top: 160px;   
+  padding-bottom: 120px;
+}
+
+/* =====================================================
+   ORGANIZATIONAL SECTION 
+===================================================== */
+#organizational {
+  padding-top: 120px;
+  padding-bottom: 140px;
 }
 
 /* =========================
@@ -532,53 +585,105 @@ body {
 }
 
 /* =========================
-   OPTIONAL BADGE
+   DOCUMENTATION GALLERY
 ========================= */
-.portfolio-card .badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: rgba(11, 31, 58, 0.9);
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 12px;
+
+.documentation-role {
+  margin-top: 70px;
+}
+
+.documentation-gallery {
+  max-width: 1100px;
+  margin: 60px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* WRAPPER */
+.doc-image {
+  width: 100%;
+  aspect-ratio: 25 / 18;   
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(11, 31, 58, 0.12);
+}
+
+/* IMAGE */
+.doc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* HOVER EFFECT */
+.doc-image:hover img {
+  transform: scale(1.05);
+}
+
+/* =========================
+   VOLUNTEER EXPERIENCE
+========================= */
+
+.portfolio-content {
+  padding: 22px 22px 26px;
+}
+
+.portfolio-sub {
+  display: block;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  color: var(--accent);
+  margin-bottom: 14px;
 }
 
-/* =========================
-   SECTION SPACING (ACADEMIC → ORGANIZATIONAL)
-========================= */
-.portfolio-section + .portfolio-section {
-  margin-top: 30px;
+.portfolio-list {
+  padding-left: 18px;
+  margin: 0;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 1024px) {
-  .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .section-header h2 {
-    font-size: 32px;
-  }
+.portfolio-list li {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 640px) {
-  .portfolio {
-    padding: 70px 0;
-  }
+.volunteer-grid {
+  grid-template-columns: 1fr 1fr 0.9fr;
+  align-items: stretch;
+}
 
-  .portfolio-grid {
+/* PHOTO COLUMN */
+.volunteer-photo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.volunteer-photo img {
+  width: 100%;
+  height: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 30px 60px rgba(11, 31, 58, 0.18);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .volunteer-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
 
-  .section-header h2 {
-    font-size: 28px;
+  .volunteer-photo {
+    flex-direction: row;
+  }
+
+  .volunteer-photo img {
+    max-height: 220px;
   }
 }
 
@@ -586,7 +691,7 @@ body {
    CONTACT
 ========================= */
 .contact-section {
-  padding: 90px 0;
+  padding: 90px 40px;
   background: #f8fafc;
 }
 
@@ -660,7 +765,7 @@ body {
 }
 
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 0 ;
 }
 
 .form-group label {
@@ -686,47 +791,27 @@ body {
   border-color: var(--accent);
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-}
 
-/* CONTACT ICON LIST */
-.contact-info li {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.contact-info i {
-  font-size: 22px;
-  color: var(--accent);
-  margin-top: 4px;
-}
-
-.contact-info div span {
-  font-weight: 600;
-  color: var(--navy);
-  display: block;
-}
-
-/* =========================
+/* =====================================================
    FOOTER
-========= */
-.footer {
-  background: var(--navy);
-  padding: 18px 0;
-}
+===================================================== */
+.site-footer {
+  background: #0b1f3a;
+  color: #a7b3c5;
 
-.footer-container {
-  max-width: 1100px;
-  margin: auto;
+  padding: 14px 20px;
+  margin: 0;
+
   text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.footer p {
-  color: #cbd5e1;
-  font-size: 14px;
+body > footer {
+  margin-bottom: 0;
 }
