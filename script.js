@@ -1,3 +1,17 @@
+const tabs = document.querySelectorAll(".resume-tab");
+const panels = document.querySelectorAll(".resume-panel");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    panels.forEach(p => p.classList.remove("active"));
+
+    tab.classList.add("active");
+    document.getElementById(tab.dataset.tab).classList.add("active");
+  });
+});
+
+
 (function () {
   emailjs.init("Q0SkckuvTBCtdw9LF"); // 🔴 GANTI
 })();
